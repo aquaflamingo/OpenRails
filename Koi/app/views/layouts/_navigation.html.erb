@@ -1,0 +1,33 @@
+<header>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <%= link_to image_tag("logo.svg", :alt => "Koi Logo"), root_path, class: "logo" %>
+    </div>
+    <% if user_signed_in? %>
+        <div class="navbar-start">
+          <%= link_to "New Topic", new_topic_path, class: "navbar-item" %>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a href="#" class="navbar-link"></a>
+
+            <div class="navbar-dropdown is-right">
+              <%= link_to "Profile", user_path(current_user), class: 'navbar-item' %>
+              <hr class="navbar-divider">
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"navbar-item" %>
+            </div>
+          </div>
+        </div>
+    <%else%>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <%= link_to "Login", new_user_session_path  %>
+          </div>
+          <div class="navbar-item">
+            <%= link_to "Sign Up", new_user_registration_path, class: 'button is-info' %>
+          </div>
+        </div>
+        </div>
+    <%end%>
+  </nav>
+</header>

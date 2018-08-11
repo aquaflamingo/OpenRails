@@ -1,0 +1,33 @@
+<%= simple_form_for @topic do |f| %>
+    <div class="field">
+      <label class="label">Title</label>
+      <p class="has-text-grey"> Give your new topic a good title.</p>
+      <div class="control">
+      <%= f.input :title, label: false, wrapper: false,  input_html: {class: 'input'} %>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <label class="label">Description</label>
+        <p class="has-text-grey"> Describe the topic, maybe reasons why you want to learn this.</p>
+        <%= f.input :description, label: false, wrapper: false, input_html: {class: 'input'}%>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <label class="label">Max Units</label>
+        <p class="has-text-grey">How many individual tasks or units do you plan to have?</p>
+        <%= f.input :max_units, label: false, wrapper: false, input_html: {class: 'input'}, type:'number' %>
+      </div>
+    </div>
+
+    <br/>
+
+    <div class="field">
+      <div class="control">
+       <%= f.button :submit, class: 'button is-success is-medium'%>
+      </div>
+    </div>
+<%end%>

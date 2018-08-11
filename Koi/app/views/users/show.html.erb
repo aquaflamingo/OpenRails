@@ -1,0 +1,44 @@
+
+<section class="hero is-small is-primary is-bold">
+  <div class="container">
+    <p class="margin-top">
+        <%= link_to_if current_user_owns_profile(@user), 'Edit Profile', edit_user_registration_path(@user), class: 'is-pulled-right' do
+            nil
+          end
+        %>
+    </p>
+  </div>
+
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-2">
+          <figure class="image is-128x128">
+              <%= user_avatar(@user) %>
+          </figure>
+        </div>
+        <div class="column is-10">
+          <br/>
+          <h1 class="title">
+            <%= @user.name %>
+          </h1>
+          <h2 class="subtitle is-size-6">
+            Member since <%= @user.created_at.strftime("%d %B %Y") %>
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<br/>
+<div class="container">
+    <h3 class="title is-size-5"> Topics Completed </h3>
+  <br/>
+
+    <%= render "layouts/empty_topics_notification" unless completed_topics(@user).size > 0 %>
+    <% completed_topics(@user).each do |t| %>
+        <p><%= t.title %></p>
+    <% end %>
+
+</div>

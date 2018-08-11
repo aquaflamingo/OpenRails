@@ -1,0 +1,64 @@
+<div class="hero is-danger is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="column is-6 is-offset-3">
+
+        <div class="box">
+          <figure class="avatar">
+            <%= link_to image_tag("logo.svg", :alt => "Koi Logo"), root_path, class: "logo" %>
+          </figure>
+          <h3 class="title has-text-grey">Login Up</h3>
+          <p class="subtitle has-text-grey">Please login to continue.</p>
+
+          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name))  do |f| %>
+              <% if f.error_notification %>
+                  <div class="notification is-warning">
+                    <%=f.error_notification%>
+                  </div>
+              <%end%>
+
+              <div class="form-inputs">
+                <div class="field">
+                  <div class="control">
+                    <%= f.input      :email,
+                                      required: false,
+                                      label:false, wrapper:false,
+                                      placeholder: 'example@gmail.com',
+                                      autofocus: true,
+                                      input_html: {class: 'input is-rounded'} %>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <%= f.input      :password,
+                                      required: false,
+                                      label:false, wrapper: false,
+                                      placeholder: '*******',
+                                      input_html: {class: 'input is-rounded'} %>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="checkbox">
+
+                    <%= f.input :remember_me, label: false, wrapper:false, as: :boolean if devise_mapping.rememberable? %>
+                    Remember Me
+                  </label>
+                </div>
+
+                <br/>
+                <%= f.button :submit, "Login", class: 'button is-rounded is-success is-fullwidth' %>
+                <br/>
+                <%= render "devise/shared/links" %>
+
+              </div>
+
+          <%end%>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

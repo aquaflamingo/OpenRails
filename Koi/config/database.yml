@@ -1,0 +1,26 @@
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: koi_production
+  host: localhost
+  pool: 5
+  username: koi
+  password: <%= Rails.application.credentials.dig(:database, :production_password) %>
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: koi_development
+  host: localhost
+  pool: 5
+  username: koidb
+  password: koi_db_pass
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: koi_test
+  host: localhost
+  pool: 5
+  username: koidb
+  password: koi_db_pass

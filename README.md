@@ -1,19 +1,25 @@
-# Ruby on Rails Examples
+# 🚂 Open Rails 
 
 ## About
 
-This repository contains example apps built in Ruby on Rails.
+This repository contains several Ruby on Rails applications I've built previously and have been open sourced.
 
-- [Doist](Doist/README.md)
-- [FileCab](FileCab/README.md)
-- [Tumbo](Tumbo/README.md)
-- [Fandom](Fandom/README.md)
-- [Grammd](Grammd/README.md)
+- [Koi](Koi) - Self Learning Management System
+- [Doist](Doist) - Basic To Do List
+- [FileCab](FileCab) - Basic Note Storage
+- [Tumbo](Tumbo) - Crude Tumblr Clone
+- [Fandom](Fandom) - Fan Discussion Forum
+- [Grammd](Grammd) - Crude Instagram Clone
 
 ## Author
 
-[@RobertSimoes](www.robertsimoes.com)
+[@RobertSimoes](www.robertsimoes.com)¹
+
 
 ## Licence
 
-[Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+This repository and licensed under [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+
+----
+
+¹: Refer to individual repositories for creative commons attribution and credits.

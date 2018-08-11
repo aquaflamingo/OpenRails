@@ -1,0 +1,51 @@
+<div class="hero is-warning is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="column is-6 is-offset-3">
+
+        <div class="box">
+          <figure class="avatar">
+            <%= link_to image_tag("logo.svg", :alt => "Koi Logo"), root_path, class: "logo" %>
+          </figure>
+          <h2 class="title">Forgot your password?</h2>
+          <p class="subtitle has-text-grey">No worries.</p>
+
+          <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+              <% if f.error_notification %>
+                  <div class="notification">
+                    <%=f.error_notification %>
+                  </div>
+              <%end%>
+
+              <div class="form-inputs">
+                <div class="field">
+
+                  <div class="control">
+                    <label class="label">E-mail</label>
+                    <%= f.input :email,
+                                      required: true,
+                                      label:false,
+                                      wrapper: false,
+                                      placeholder: 'Your e-mail address.',
+                                      autofocus: true,
+                                      input_html: {class: 'input is-rounded'}%>
+                  </div>
+                </div>
+                </div>
+
+                <br/>
+                <%= f.button :submit, "Update", class: 'button is-rounded  is-black is-fullwidth' %>
+                <br/>
+                <%= render "devise/shared/links" %>
+
+              </div> <!-- end form inputs -->
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

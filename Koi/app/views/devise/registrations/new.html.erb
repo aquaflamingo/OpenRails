@@ -1,0 +1,92 @@
+<div class="hero is-info is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="column is-6 is-offset-3">
+
+        <div class="box">
+          <figure class="avatar">
+            <%= link_to image_tag("logo.svg", :alt => "Koi Logo"), root_path, class: "logo" %>
+          </figure>
+          <h3 class="title has-text-grey">Sign Up</h3>
+          <p class="subtitle has-text-grey">Get self learning.</p>
+
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+              <% if f.error_notification %>
+                  <div class="notification is-warning">
+                    <%= f.error_notification %>
+                  </div>
+              <% end %>
+
+
+              <div class="form-inputs">
+                <div class="field">
+                  <div class="control">
+                    <label class="label">Name</label>
+                    <%= f.input :name,
+                                required: true,
+                                placeholder: 'Richard Hendrix',
+                                autofocus: true,
+                                label: false,
+                                wrapper: false,
+                                input_html: {class: 'input is-rounded'} %>
+                  </div>
+                </div>
+
+                  <div class="field">
+                    <div class="control">
+                      <label class="label">E-Mail</label>
+
+
+                      <%= f.input :email,
+                                  required: true,
+                                  placeholder: 'example@gmail.com',
+                                  autofocus: true,
+                                  label: false,
+                                  wrapper: false,
+                                  input_html: {class: 'input is-rounded'} %>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="control">
+                      <label class="label">Password</label>
+                      <%= f.input :password,
+                                  required: true,
+                                  placeholder: '*******',
+                                  label: false,
+                                  wrapper: false,
+                                  input_html: {class: 'input is-rounded'} %>
+                    </div>
+                  </div>
+
+
+                  <div class="field">
+                    <div class="control">
+                      <label class="label">Password Confirmation</label>
+                      <%= f.input :password_confirmation,
+                                  placeholder: '*******',
+                                  required: true,
+                                  label: false,
+                                  wrapper: false,
+                                  input_html: {class: 'input is-rounded'} %>
+                    </div>
+                  </div>
+
+                  <br/>
+
+                  <%= f.button :submit, "Sign up", class: 'button is-rounded  is-success is-medium' %>
+
+                  <br/>
+                  <%= render "devise/shared/links" %>
+
+                </div>
+
+          <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

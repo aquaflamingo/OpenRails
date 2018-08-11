@@ -1,0 +1,111 @@
+<div class="section">
+  <div class="container">
+    <div class="content">
+      <h3 class="title">Change Profile</h3>
+
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <% if f.error_notification %>
+              <div class="notification is-warning">
+                <%=f.error_notification%>
+              </div>
+          <%end%>
+
+          <div class="form-inputs">
+
+            <div class="field">
+              <label class="label">Name</label>
+              <div class="control">
+                <%= f.input       :name,
+                                  required: true,
+                                  label:false, wrapper: false,
+                                  placeholder: '',
+                                  autofocus: true,
+                                  input_html: {class: 'input is-rounded'} %>
+              </div>
+            </div>
+
+
+            <div class="field">
+              <label class="label">E-mail</label>
+              <div class="control">
+                <%= f.input       :email,
+                                  required: true,
+                                  label:false, wrapper: false,
+                                  placeholder: '',
+                                  autofocus: true,
+                                  input_html: {class: 'input is-rounded'} %>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Upload Avatar</label>
+              <div class="control">
+
+              <%= f.file_field :avatar %>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Current Password</label>
+              <div class="control">
+                <%= f.input :current_password,
+                            label: false,
+                            wrapper: false,
+                            placeholder: '******', required: true,
+                            input_html: {class: 'input is-rounded'}%>
+
+              </div>
+            </div>
+
+
+
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+            <% end %>
+
+
+            <div class="password-change">
+              <br/>
+              <h4 class="subtitle"> Change Password</h4>
+              <p class="has-text-grey"> Leave password blank if you don't want to change it. </p>
+
+              <div class="field">
+                <label class="label">New Password</label>
+                <div class="control">
+                  <%= f.input :password,
+                              label: false, wrapper: false,
+                              placeholder: "******",
+                              required: false,
+                              input_html: {class: 'input is-rounded'}%>
+                </div>
+              </div>
+
+
+              <div class="field">
+                <label class="label">Password Confirmation</label>
+                <div class="control">
+                  <%= f.input      :password_confirmation,
+                                    label: false, wrapper: false,
+                                    placeholder: '******',
+                                    required: true,
+                                    input_html: {class: 'input is-rounded'}%>
+                </div>
+              </div>
+            </div>
+
+            <br/>
+              <%= f.button :submit, "Update", class: 'button is-rounded  is-success is-pulled-right' %>
+            <br/>
+
+          </div> <!-- end form inputs -->
+      <%end%>
+
+
+      <p><%= link_to "Deactivate account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+      <%= link_to "Back", :back %>
+    </div>
+
+  </div>
+  </div>
+</div>

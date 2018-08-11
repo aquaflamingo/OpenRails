@@ -1,0 +1,122 @@
+<div class="section">
+  <div class="container">
+    <div class="level">
+      <div class="level-item level-left">
+        <h2 class="title"><%= @topic.title %>
+          <% if @topic.completed? %>
+              <!-- Not complete -->
+              <span class="tag is-success">
+                Complete
+              </span>
+          <% else %>
+              <span class="tag is-black">Incomplete</span>
+          <% end %>
+        </h2>
+      </div>
+
+      <div class=" level-right">
+        <div class="level-item">
+          <%= link_to_if(@topic.unit_of_educations.count<@topic.max_units, 'New Unit', new_topic_unit_of_education_path(@topic), class: 'button is-info is-pulled-right') do
+            nil
+          end %>
+        </div>
+        <div class="level-item">
+          <nav>
+            <div class="navbar-end navbar-item has-dropdown is-hoverable">
+
+              <a class="navbar-link">
+              </a>
+
+              <div class="navbar-dropdown is-right">
+                <%= link_to 'Edit', edit_topic_path, class: 'navbar-item' %>
+
+                <hr class="navbar-divider">
+                <%= link_to 'Delete', topic_path(@topic), method: 'delete', class: 'navbar-item' %>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="content">
+      <p><%= @topic.description %></p>
+    </div>
+
+    <div class="container">
+      <% if @topic.unit_of_educations.empty? %>
+          <article class="message is-info">
+            <div class="message-body">
+              You haven't created any units for this topic yet. Go ahead
+              and <%= link_to 'create one!', new_topic_unit_of_education_path(@topic) %>
+            </div>
+          </article>
+      <% else %>
+          <% @topic.unit_of_educations.each_slice(4) do |uoe_slice| %>
+              <div class="columns">
+                <% uoe_slice.each do |uoe| %>
+                    <% unless uoe.completed? %>
+                        <div class="column">
+                          <!-- Unit of Education -->
+                          <div class="card uoe">
+                            <div class="card-content">
+                              <!--<div class="media-content">-->
+                                <p class="title">
+                                  <%= uoe.title %>
+                                  <span class="tag is-success"><%= uoe.points %> points</span>
+                                  <span class="icon"></span>
+                                </p>
+                                <p class="has-text-gray"><%= uoe.description%></p>
+                              <!--</div>-->
+
+
+                                <div class="is-pulled-right">
+                                  <%= link_to '', complete_topic_unit_of_education_path(@topic, uoe), method: :patch, class: 'button is-large is-success icon ion-checkmark' %>
+                                </div>
+
+                            </div>
+                          </div>
+                          <!-- end unit -->
+                        </div>
+                    <% end %>
+                <% end %>
+              </div>
+          <% end %>
+
+          <br/><br/><br/>
+
+          <div class="has-text-centered">
+            <% if @topic.completed_units.size>0 %>
+                <h3 class="title is-size-5">
+                  Units Completed
+                </h3>
+
+                <% @topic.unit_of_educations.each do |uoe| %>
+                    <% unless uoe.completed_at.nil? %>
+                        <div class="unit-complete">
+                          <div class="columns">
+                            <div class="column">
+                              <p><%= uoe.title %></p>
+                            </div>
+
+                            <div class="column">
+                              <span class="tag is-black"><%= uoe.completed_at.strftime("%B %d %Y") %></span>
+                            </div>
+                          </div>
+                        </div>
+                    <% end %>
+                <% end %>
+            <% end %>
+          </div>
+
+          </div>
+
+          <br/>
+      <% end %> <!-- units_of_education is empty? -->
+
+          <% if not @topic.completed? %>
+            <p class="is-pulled-right"><%= @topic.units_remaining %> units remaining</p>
+        <% end %>
+      </div>
+</div>

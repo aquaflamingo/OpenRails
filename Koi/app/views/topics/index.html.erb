@@ -1,0 +1,61 @@
+<div class="section">
+  <div class="container">
+    <div class="level">
+      <div class="level-item level-left">
+        <h2 class="title has-text-centered">Topics</h2>
+      </div>
+      <div class="level-item level-right">
+        <%= link_to "New Topic", new_topic_path, class: 'button is-info'%>
+      </div>
+    </div>
+
+    <% if @topics.empty? %>
+        <article class="message">
+          <div class="message-body">
+            No topics found. Why not <%= link_to 'create one?', new_topic_path %>
+          </div>
+        </article>
+    <% else %>
+      <% @topics.each_slice(3) do |topic_slice| %>
+          <div class="columns">
+            <% topic_slice.each do |topic| %>
+                <div class="column">
+                  <%= link_to topic do %>
+                  <div class="card">
+                    <% unless topic.completed? %>
+                      <div class="card-image">
+                        <figure class="image ">
+                           <%= topic_image(topic) %>
+                        </figure>
+                      </div>
+                    <%end%>
+
+                    <div class="card-content">
+                        <div class="media-content">
+                          <p class="title">
+                            <%= topic.title %>
+                            <% if topic.completed? %>
+                                <span class="tag is-success is-small">Complete</span>
+                            <%end%>
+
+                          </p>
+                        </div>
+
+                      <div class="content">
+                        <p class="subtitle is-6">
+                          <%= topic.description %>
+                        </p>
+                        <span class="tag is-primary is-small"> <%=topic.completed_points_value%>/<%=topic.total_points_value%> points of earned</span>
+                        <br/>
+                        <time datetime="2016-1-1">Last Active: <%= last_active_time(topic) %> </time>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <%end%>
+            <% end%>
+          </div>
+      <%end%> <!-- end each_topic_slice -->
+    <%end%> <!-- end topics empty -->
+  </div>
+</div>

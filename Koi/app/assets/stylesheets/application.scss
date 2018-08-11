@@ -1,0 +1,75 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+
+ */
+
+@import "bulma";
+@import "ionicons";
+
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,900|Montserrat');
+$header-font: 'Merriweather', serif;
+$body-font: 'Montserrat', serif;
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: $body-font;
+  font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $header-font;
+  font-weight: bold;
+}
+
+.logo {
+  padding: 1em;
+}
+
+.floater {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 1em;
+  z-index: 2;
+}
+
+/* For sticky footer */
+#main-content {
+  flex: 1;
+}
+
+
+.footer {
+  background-color: transparent;
+  padding: 2rem 1rem 1rem;
+}
+
+.margin-top {
+  margin-top: 2em;
+}
+
+.is-256x256 {
+  width: 256px;
+  height: 256px;
+
+}
+
+.image {
+  overflow: hidden;
+  margin: auto;
+}
+
