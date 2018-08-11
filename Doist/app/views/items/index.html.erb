@@ -1,0 +1,64 @@
+<% if user_signed_in? %>
+<div class="row">
+    <div class="col s9">
+    <ul class="collection with-header z-depth-3">
+        <li class="collection-header"><h4>Your List </h4></li>
+        <% @items.each do |item| %>
+            <% if item.completed? %>
+            <li class="collection-item todo-item">
+                <div class="row">
+                  <!-- Trash -->
+                    <div class="col s2">
+                        <p> <%= link_to item, method: :delete do %></p>
+                        <i class="material-icons md-24">delete</i>
+                        <%end%>
+                    </div>
+               
+                 <div class="col s8">
+                        <h4 style="opacity: 0.5; text-decoration: line-through;"><%= link_to item.title, item %></h4>
+                        <p style="opacity: 0.5;"><%= item.description%></p>
+                        <p style="opacity: 0.5;"> Completed <%= time_ago_in_words(item.completed_at) %> ago </p>
+                    </div>
+
+                  
+                </div>
+             </li>
+
+            <% else %>
+            <li class="collection-item todo-item">
+                <div class="row">   
+                    <div class="col s8">
+                    
+                        <h4 style=""><%= link_to item.title, item %></h4>
+                        <p style=""><%= item.description%></p>
+                        <p style=";"> Created <%= time_ago_in_words(item.created_at) %> ago </p>
+                  
+                </div>
+                 <!-- Complete -->
+                <div class="col s2">
+                    <p> <%= link_to complete_item_path(item), method: :patch do %></p>
+                     <i class="material-icons md-24">check</i>
+                     <%end%>
+                </div>
+
+                 <!-- Trash -->
+                <div class="col s2">
+                    <p> <%= link_to item, method: :delete do %></p>
+                     <i class="material-icons md-24">delete</i>
+                     <%end%>
+                </div>
+                </div>
+              </li>
+            <%end%>
+        <%end%>
+    </div>
+
+    <div class="col s3">
+    <ul class="collection with-header z-depth-3">
+        <li class="collection-header"><h5>Pinned Items</h5></li>
+    </ul>
+    </div>
+</ul>
+<% else %>
+    <%= render 'welcome_page'%>
+<%end%>

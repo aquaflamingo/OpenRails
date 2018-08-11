@@ -1,0 +1,12 @@
+.col-md-8.col-md-offset-2
+    .row
+        .panel.panel-default
+            .panel.text-center
+                %h1 Edit Photo
+            .panel-body
+                .container
+                    %br
+                    = image_tag @photo.image.url(:medium)
+                %br    
+                = render 'form'
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Doist</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  <!-- Menu -->
+  <% if user_signed_in? %>
+     <nav class="nav-extended red">
+      <div class="nav-wrapper">
+        <%= link_to "Doist", root_path, class: 'brand-logo' %> 
+        <ul class="right hide-on-med-and-down">
+          <li><a>Upgrade</a></li>
+          <li><a>Profile</a></li>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete%></li>
+        </ul>
+      </div>
+      <div class="nav-content">
+        <span class="nav-title"> 
+        </span>
+        
+         <%= link_to '<i class="material-icons">add</i>'.html_safe, new_item_path, class: "btn-floating btn-large halfway-fab waves-effect waves-light blue"%>
+       
+      </div>
+    </nav>
+  <% else %>
+     <nav class="nav-extended red">
+     
+      <div class="nav-wrapper">
+       <ul class="left hide-on-med-and-down">
+          <%= link_to "Doist", root_path, style: "font-size: 24px; padding: 0.5em;"%>
+      </ul>
+      </div>
+      
+    </nav>
+  <%end%>
+
+  <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    
+    <%= yield %>
+
+    
+    <br/>
+    <br/>
+    <% if !user_signed_in? %>
+    <%= render 'layouts/footer'%>
+    <%end%>
+    </div>
+  </body>
+</html>

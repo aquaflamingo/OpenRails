@@ -1,0 +1,125 @@
+$dark_gray: #2B2E2E;
+$light_gray: #C0C1C1;
+$green: #529ECC;
+
+@mixin bold_font {
+  font-family: "Brandon Grotesque","Helvetica Neue", sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+* {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+	padding-top: 4.5rem;
+	font-family: "Brandon Grotesque","Helvetica Neue", sans-serif;
+}
+
+.wrapper {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.wrapper_with_padding {
+	width: 80%;
+	margin: 0 auto;
+	padding: 3.5rem 0;
+}
+
+.clearfix:before, .clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+// LOGIN AND SIGN UP
+
+input ._input {
+	border:solid 1px #BFBDBD;
+    color: #979797;
+    height: 28px;
+    padding-left:10px;
+    width: 191px;
+    box-shadow: 2px 2px 0 #828181 inset;
+}
+// BUTTON STYLING
+
+
+a {
+	color: #0bd7b9;
+	text-decoration: none;
+	&:hover {
+		color: $dark_gray;
+	}
+}
+
+// HEADER STYLING
+
+header {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	padding: 1.75rem 0;
+	.header_inner {
+		width: 90%;
+		margin: 0 auto;
+		#logo {
+			display: inline-block;
+			width: 10rem;
+			float: left;
+			font-weight: bold;
+			color: #222;
+			font-family: "Brandon Grotesque","Helvetica Neue", Helvetica, sans-serif;
+			font-size: 2.0rem;
+		}
+		nav {
+			float: right;
+			a {
+				text-decoration: none;
+				color: #0bd7b9;
+				font-size: 1.1rem;
+				line-height: 1.5;
+				margin-left: 1rem;
+				&:hover {
+					color: $light_gray;
+				}
+			}
+		}
+	}
+}
+
+// FOOTER STYLING (OPTIONAL)
+
+footer {
+	background: #529ECC;
+	width: 100%;
+	padding: 2rem 0;
+	color: white;
+	text-align: center;
+	@include bold_font;
+	p {
+		margin: 0;
+		font-size: .65rem;
+	}
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea {
+	width: 100%;
+	margin-bottom: 1rem;
+	border: 1px solid $light_gray;
+	border-radius: .4rem;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+	height: 40px;
+}
+
+textarea {
+	min-height: 200px;
+}

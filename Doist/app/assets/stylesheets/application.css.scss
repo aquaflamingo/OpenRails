@@ -1,0 +1,69 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require material_icons
+ */
+
+ .nav-title {
+    font-size: 18px;
+    margin-left: 1em;
+}
+
+.jumbotron {
+    background: image-url('img.jpeg');
+    background-size: cover;
+    height: 350px;
+    fixed-left: true;
+}
+
+.content-inverse {
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
+ @import "materialize/components/color";
+ $primary-color: color("red", "lighten-2") !default;
+ $secondary-color: color("blue", "base") !default;
+
+ @import 'materialize';
+
+ @import 'normalize.css';
+
+ nav {
+     margin-top: -1em;
+ }
+
+ body {
+     background: #eeeeee;
+ }
+
+ .brand-logo {
+     margin: 1em;
+ }
+
+ .auth {
+     border: 1px #222;
+    border-radius: 4px;
+    padding-top: 1em;
+    padding-bottom: 3em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background: #fff;
+ }
+
+ .main-content{
+     background: white;
+     padding: 1em;
+ }
+

@@ -1,0 +1,8 @@
+.wrapper_with_padding
+    #doc_show
+        %h1.title= @doc.title
+        %p= @doc.content
+
+        %br
+        = link_to'Edit', edit_doc_path(@doc)
+        = link_to 'Trash', doc_path(@doc), class: 'pull-right', method: :delete, data: {confirm: "are you sure?"}
