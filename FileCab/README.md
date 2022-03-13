@@ -9,10 +9,6 @@ It tackles common concepts of `MVC` using Rails. It also leverages libraries suc
 ![Landing](./screen_shot_new.png)
 ![Landing](./screen_shot_document.png)
 
-## Author
-
-[@RobertSimoes](www.robertsimoes.com)
-
 ## Licence
 
 Apache 2.0

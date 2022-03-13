@@ -7,9 +7,6 @@ Fandom is a fan favourite forum for discussing fantatical fantastic things peopl
 ![show_comments](screen_post_comments.png)
 
 
-## Author
-
-[@RobertSimoes](www.robertsimoes)
 
 ## Lincense
 

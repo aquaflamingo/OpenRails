@@ -11,10 +11,6 @@ This repository contains several Ruby on Rails applications I've built previousl
 - [Fandom](Fandom) - Fan Discussion Forum
 - [Grammd](Grammd) - Crude Instagram Clone
 
-## Author
-
-[@RobertSimoes](www.robertsimoes.com)¹
-
 
 ## Licence
 

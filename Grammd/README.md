@@ -17,9 +17,6 @@ Editing photos
 ![Upload](upload_screenshot.png)
 Upload new photo
 
-## Author 
-
-[@RobertSimoes](www.robertsimoes.com)
 
 ## License 
 

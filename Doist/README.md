@@ -9,10 +9,6 @@ It uses basic gems such as `devise`, `materialize`, and more!
 ![New](screen_newtodo.png)
 ![Signup](screen_login.png)
 
-## Author 
-
-[@RobertSimoes](www.robertsimoes.com)
-
 ## License 
 
 This code is licensed under [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0.html)

@@ -7,7 +7,7 @@ The general idea behind this application was to create a portal that allowed som
  If you'd like to clone this application to use or modify for yourself:
  
  ```
-    $ git clone https://github.com/robertsimoes/OpenRails/Koi
+    $ git clone https://github.com/aquaflamingo/OpenRails/Koi
     $ cd Koi
     $ bundle install
       # ... waiting for install
@@ -47,10 +47,6 @@ The general idea behind this application was to create a portal that allowed som
 
 PostgreSQL, Amazon S3, Nginx, Passenger, Digital Ocean, RSpec, Rails
 
-
-## Author
-
-[@robertsimoes](www.robertsimoes.com)
 
 **Note**: All copyright, credits and attributions for the default photos uses in this repository and project belong to to FreePik, and Vecteezy
 
